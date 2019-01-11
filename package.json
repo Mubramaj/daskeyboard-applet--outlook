@@ -1,0 +1,76 @@
+{
+  "name": "daskeyboard-applet--outlook",
+  "publisher": "Das Keyboard",
+  "displayName": "Outlook",
+  "version": "1.0.0",
+  "description": "Notifies when key senders emails just arrived.",
+  "longDescription": "Get emails alerts directly on a Das Keyboard Q device. Requires a Outlook account.",
+  "icon": "assets/icon.png",
+  "developerRepoUrl": "https://github.com/daskeyboard/daskeyboard-applet--outlook",
+  "officialProductName": "Outlook",
+  "image": "assets/image-missing.png",
+  "authorName": "Das Keyboard",
+  "authorUrl": "https://twitter.com/daskeyboard",
+  "issuesUrl": "https://github.com/daskeyboard/daskeyboard-applet--outlook/issues",
+  "homePageUrl": "https://github.com/daskeyboard/daskeyboard-applet-outlook",
+  "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
+  "readMeUrl": "README.md",
+  "readMeEndUserUrl": "README_END_USER.md",
+  "changelogUrl": "CHANGELOG.md",
+  "engines": {
+    "das-keyboard-q": "3.1.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Cory Kim",
+  "license": "MIT",
+  "dependencies": {
+    "daskeyboard-applet": "2.10.6",
+    "request-promise": "^4.2.2"
+  },
+  "isSingleton": false,
+  "qConfig": {
+    "geometry": {
+      "width": 1,
+      "height": 1
+    },
+    "authorization": {
+      "type": "oauth2"
+    },
+    "questions": [
+      {
+        "key": "monitors",
+        "label": "Notify each time a new email from the addresses listed bellow arrives",
+        "required": true,
+        "placeholder": "username@address.com",
+        "order": 2,
+        "controlType": "textbox",
+        "isArray": true
+      },
+      {
+        "key": "account",
+        "label": "Name this account",
+        "order": 1,
+        "required": true,
+        "placeholder": "Example: work account",
+        "controlType": "textbox"
+      }
+    ]
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corykim/q-applet-outlook.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/corykim/q-applet-outlook/issues"
+  }
+}
