@@ -1,13 +1,13 @@
 const q = require('daskeyboard-applet');
 const logger = q.logger;
 
-const queryUrlBase = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize';
+const queryUrlBase = 'https://outlook.office.com/api/v2.0/me/messages';
 
 function getTimestamp() {
   return Math.round(new Date().getTime() / 1000);
 }
 
-class GmailAlerts extends q.DesktopApp {
+class OutlookAlerts extends q.DesktopApp {
   constructor() {
     super();
     this.pollingInterval = 60000;
@@ -110,9 +110,9 @@ class GmailAlerts extends q.DesktopApp {
   }
 }
 
-const applet = new GmailAlerts();
+const applet = new OutlookAlerts();
 
 module.exports = {
   getTimestamp: getTimestamp,
-  GmailAlerts: GmailAlerts,
+  OutlookAlerts: OutlookAlerts,
 }
