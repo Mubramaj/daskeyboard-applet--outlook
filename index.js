@@ -1,7 +1,7 @@
 const q = require('daskeyboard-applet');
 const logger = q.logger;
 
-const queryUrlBase = 'https://outlook.office.com/api/v2.0/me/messages';
+const queryUrlBase = 'https://graph.microsoft.com/v1.0/me/mailfolders/inbox/messages';
 
 function getTimestamp() {
   return Math.round(new Date().getTime() / 1000);
@@ -41,7 +41,7 @@ class OutlookAlerts extends q.DesktopApp {
       apiKey: this.authorization.apiKey,
       uri: queryUrlBase,
       qs: {
-        q: `from:${monitors.join(" OR ")} is:unread after: ${timestamp}`,
+        select:"Subject,Sender"
       }
     });
 
