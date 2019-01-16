@@ -2,10 +2,10 @@ const assert = require('assert');
 const t = require('../index');
 const apiKey = require('./auth.json').apiKey;
 
-describe('GmailAlerts', function () {
+describe('OutlookAlerts', function () {
   describe('#constructor()', function () {
     it('should return a valid instance', function () {
-      let test = new t.GmailAlerts();
+      let test = new t.OutlookAlerts();
       assert.ok(test);
     })
   });
@@ -58,7 +58,7 @@ describe('GmailAlerts', function () {
 
   describe('#run()', function () {
     it('should fail without an API key', async function () {
-      let test = new t.GmailAlerts();
+      let test = new t.OutlookAlerts();
       return test.run().then((result) => {
         return assert.fail("Should have failed.");
       }).catch((error) => {
@@ -114,7 +114,7 @@ function getOldTimestamp() {
 }
 
 async function buildApp() {
-  let test = new t.GmailAlerts();
+  let test = new t.OutlookAlerts();
   return test.processConfig({
     authorization: {
       apiKey: apiKey
